@@ -39,6 +39,14 @@
     --border-style-dark: 1px solid rgba(0, 0, 0, 0.5);
 }
 
+#default-ar-button {
+    position: absolute;
+    bottom: 80px !important;
+    right: 40px !important;
+    transform: scale(2) !important;
+    transform-origin: bottom right;
+}
+
 .sidebar {
     margin: 0;
     padding: 0;
