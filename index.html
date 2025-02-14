@@ -63,6 +63,21 @@
                     </div>
                 </div>
             </model-viewer>
+            <button
+                id="fullscreen-button"
+                style="
+                    position: absolute;
+                    top: 10px;
+                    right: 10px;
+                    padding: 10px;
+                    background: #4285f4;
+                    color: white;
+                    border: none;
+                    border-radius: 5px;
+                    cursor: pointer;
+                ">
+                Fullscreen
+            </button>
         </div>
 
         <script type="module">
@@ -82,6 +97,19 @@
             document.querySelector(".slider").addEventListener("beforexrselect", (ev) => {
                 // Keep slider interactions from affecting the XR scene.
                 ev.preventDefault();
+            });
+        </script>
+
+        <script type="module">
+            document.getElementById("fullscreen-button").addEventListener("click", function () {
+                const webXR = document.getElementById("webXR");
+                if (!document.fullscreenElement) {
+                    webXR.requestFullscreen().catch((err) => {
+                        console.log(`Error attempting to enable fullscreen: ${err.message}`);
+                    });
+                } else {
+                    document.exitFullscreen();
+                }
             });
         </script>
 
